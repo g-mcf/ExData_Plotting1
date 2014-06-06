@@ -32,7 +32,7 @@ hpc_plot <- hpc[date == "1/2/2007" | date == "2/2/2007"]
 rm(hpc)
 
 # Construct the plot and write it to a png file
-par(bg = "darkgrey",cex.axis = 0.8, cex.lab = 0.8, cex.main = 0.9)
+par(bg = "white",cex.axis = 0.8, cex.lab = 0.8, cex.main = 0.9)
 plot1 <- hpc_plot[ , hist(as.numeric(global_active_power),
                           main ="Global Active Power",
                           xlab = "Global Active Power (kilowatts)",
