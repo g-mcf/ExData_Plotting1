@@ -91,8 +91,6 @@ hpc_plot[, plot(date_time, global_reactive_power, type = "l",
 dev.off()
 
 
-
-
 # remove unused objects
 
 rm(legend_names)
