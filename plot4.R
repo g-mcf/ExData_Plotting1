@@ -90,7 +90,6 @@ hpc_plot[, plot(date_time, global_reactive_power, type = "l",
                     xlab ="datetime", ylab = "Global_reactive_power")]       
 dev.off()
 
-
 # remove unused objects
 
 rm(legend_names)
@@ -98,7 +97,7 @@ rm(legend_names)
 # fyi...for fun I analyzed the speed of this code; it is fast due to
 # the use of data.table
 #
-#  > ss <- system.time(source('C:/Users/us12fd/Desktop/R/plot4.R'))
+#  > ss <- system.time(source("~/Documents/Coursera/4_Exploratory Data Analysis/plot4.R"))
 #  > ss
 #  user  system elapsed 
 #  1.84    0.10    1.94 
