@@ -48,9 +48,6 @@ setkey(hpc, date)
 hpc_sub <- hpc[c("1/2/2007", "2/2/2007")]
 rm(hpc)
 
-# not run: this is code unique to data.table that I want to test later
-# hpc_sub1 <- hpc[J("1/2/2007","2/2/2007")]
-
 # Add a column that merges and reclasses the date and time columns
 
 hpc_plot <- hpc_sub[, date_time := as.POSIXct(paste(date, time), 
