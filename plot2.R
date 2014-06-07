@@ -1,11 +1,11 @@
 #####################################################
-# plot1.R
+# plot2.R
 #
 # Exploratory Data Analysis
 # part of the Data Science Specialization
 # from John Hopkins University on Coursera
 #
-# This script reproduces plot 1 of course project 1
+# This script reproduces plot 2 of course project 1
 #
 #####################################################
 
@@ -48,16 +48,26 @@ setkey(hpc, date)
 hpc_sub <- hpc[date == "1/2/2007" | date == "2/2/2007"]
 rm(hpc)
 
+# Create a data table with new column that merges the date and time columns and
+# reclasses them
+
+hpc_plot <- hpc_sub[, date_time := as.POSIXct(paste(date, time), 
+                                              format = "%d/%m/%Y %H:%M:%S")]
+
+# Key the data table on the new date-time column
+setkey(hpc_plot, date_time)
+
+# remove unused objects
+rm(hpc_sub)
+
 # Construct the plot and write it to a png file
 
-png( file = "plot1.png", height = 480, width = 480)
+png( file = "plot2.png", height = 480, width = 480)
 
 par(bg = "white",cex.axis = 0.8, cex.lab = 0.8, cex.main = 0.9)
-plot1 <- hpc_plot[ , hist(as.numeric(global_active_power),
-                          main ="Global Active Power",
-                          xlab = "Global Active Power (kilowatts)",
-                          col = "red",
-                          border = "black")]
+hpc_plot[, plot(date_time, as.numeric(global_active_power),
+                         type = "l", xlab = "",
+                         ylab = "Global Active Power (kilowatts)")]
 
 dev.off()
 
