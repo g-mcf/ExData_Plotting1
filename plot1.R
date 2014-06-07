@@ -45,7 +45,7 @@ setkey(hpc, date)
 # Subset the data table on the dates of interest and remove the no longer needed
 # original data file to free up RAM
 
-hpc_sub <- hpc[date == "1/2/2007" | date == "2/2/2007"]
+hpc_sub <- hpc[c("1/2/2007", "2/2/2007")]
 rm(hpc)
 
 # Construct the plot and write it to a png file
@@ -53,7 +53,8 @@ rm(hpc)
 png( file = "plot1.png", height = 480, width = 480)
 
 par(bg = "white",cex.axis = 0.8, cex.lab = 0.8, cex.main = 0.9)
-plot1 <- hpc_plot[ , hist(as.numeric(global_active_power),
+
+hpc_plot[ , hist(as.numeric(global_active_power),
                           main ="Global Active Power",
                           xlab = "Global Active Power (kilowatts)",
                           col = "red",

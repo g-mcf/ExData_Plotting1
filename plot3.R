@@ -45,7 +45,7 @@ setkey(hpc, date)
 # Subset the data table on the dates of interest and remove the no longer needed
 # original data file to free up RAM
 
-hpc_sub <- hpc[date == "1/2/2007" | date == "2/2/2007"]
+hpc_sub <- hpc[c("1/2/2007", "2/2/2007")]
 rm(hpc)
 
 # not run: this is code unique to data.table that I want to test later
